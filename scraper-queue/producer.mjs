@@ -23,6 +23,7 @@ const scraperQueue = new Queue('scraper-queue', { connection: connection });
   });
   await browser.close();
 
+
   for (let index = 0; index < reuslt.links.length; index++) {
     await scraperQueue.add(`${reuslt.titles[index]}`, { link: reuslt.links[index] }, { delay: 2000 });
   }
